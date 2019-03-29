@@ -32,6 +32,7 @@
       x = e.clientX -drag.offsetLeft
       y = e.clientY - drag.offsetTop
     })
+    //鼠标移动和鼠标松开事件必须监听document，否则会有bug
     document.addEventListener('mousemove',(e)=>{
       if(moveVisible){
         let dateX = e.clientX - x
@@ -40,7 +41,7 @@
         drag.style.top = dateY + 'px'
       }
     })
-    drag.addEventListener('mouseup',()=>{
+    document.addEventListener('mouseup',()=>{
       moveVisible = false
     })
 </script>
